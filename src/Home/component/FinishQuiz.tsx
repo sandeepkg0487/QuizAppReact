@@ -3,17 +3,12 @@ import { useMyContext } from './utils/Contextanswer';
 
 
 const FinishQuiz = () => {
-const {selectedValue}= useMyContext();
+const {questiondb}= useMyContext();
 const [result ,setResult]=useState<number|null>(null);
     const finishButtonClick = () => {
-      setResult(selectedValue.filter((prevdata)=>{return prevdata.userAnswer === prevdata.answer}).length);
+      setResult(questiondb.filter((prevdata)=>{return prevdata.userAnswer === prevdata.answer}).length);
       console.log("result",result)
-     
-       
-        
-       
-    
-    }
+     }
     
   return (
     <>

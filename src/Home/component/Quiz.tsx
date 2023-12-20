@@ -1,8 +1,8 @@
 import  {   useState } from 'react'
 import { quizdb,   } from './utils/shape'
 import Question from './Question';
-
-
+import ShowAnswer from './ShowAnswer';
+import { useMyContext } from './utils/Contextanswer';
 
 
 export default function Quiz() {
@@ -10,31 +10,20 @@ export default function Quiz() {
     let random:Number;
     let check ;
    
- 
-  
-// /*random number generator for advance */
-  //  const rondomnumgenerator = ()=>{
-   
-  //     random =  Math.floor(Math.random() * ( 3 ))
-  //     check= quizdb.find((item) => item.questionnumber === random)
-  //     console.log(random);
-  //     if(check){
-  //       console.log(check)
-  //       rondomnumgenerator();
-  //     }
-  //     };
-
-
 /*next click function for change question using change value of i*/
-; 
+const [showanswerflag , setShowanswerflag] =useState<boolean>(false);
+const{setI} = useMyContext();
+const showAnswerbutton = () => {
+  setI(0);
+  setShowanswerflag(true);
+ 
 
-
-
-
+}
 
   return (
     <div>
-     <Question/>
+      {!showanswerflag?<Question setShowanswerflag={setShowanswerflag}/>:<ShowAnswer/>}
+     
     </div>
   )
 }

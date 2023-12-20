@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { quizdbshape, tabtrigerstatus, userAnswers } from './component/utils/shape'
-import Button from './component/Button';
-import QuestionAdd from './component/QuestionAdd';
+import StatusButton from './component/StatusButton';
 import Quiz from './component/Quiz';
 import './home.css';
 import { CustomProvider } from './component/utils/Contextanswer';
@@ -21,14 +20,16 @@ export default function Home() {
     <CustomProvider >
 
    
-    <div className="tabtrigger">
-      <div className="tabtrigerwrap">
-      <Button value='answer' className={`TabTrigerButton ${tabtrigger ==='quiz'? 'active':''}`} setTabtriger={setTabtriger} set='quiz'>quiz</Button>
-      <Button value='questionadd'  className={`TabTrigerButton ${tabtrigger ==='questionadd'? 'active':''}`} setTabtriger={setTabtriger} set="questionadd">Add Question</Button>
-      </div>
-     <div className="displayContent">
-      {tabtrigger ==='questionadd' ? <QuestionAdd setQuestiondb={setQuestiondb}/> : <Quiz/> }
+    <div className="home">
+      <div className="questionAndindicationWrapper">
+
+      <div className="displayContent">
+      <Quiz/>
      </div>
+     <div className="indicator">
+      <StatusButton/>
+     </div>
+      </div>
     </div>
     </CustomProvider>
   )

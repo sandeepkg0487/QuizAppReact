@@ -11,6 +11,7 @@ export interface button{
     question:string;
     options?:options;
     answer:string;
+    userAnswer?:string;
  } 
  type options  ={
    optionA:string;

@@ -2,14 +2,16 @@ import React, { useEffect, useState } from "react";
 import Countdown from "./Countdown";
 import { quizdbshape, userAnswers } from "./utils/shape";
 import FinishQuiz from "./FinishQuiz";
+import { NextButton, QuestionDIv } from "./Components";
 import { useMyContext } from "./utils/Contextanswer";
-type anything= {
-  setShowanswerflag:React.Dispatch<React.SetStateAction<boolean>>
-}
-const Question:React.FunctionComponent<anything> = ({setShowanswerflag}) => {
+
+type anything = {
+  setShowanswerflag: React.Dispatch<React.SetStateAction<boolean>>;
+};
+const Question: React.FunctionComponent<anything> = ({ setShowanswerflag }) => {
   const { questiondb, setQuestiondb } = useMyContext();
   const { i, setI } = useMyContext();
-  const [optionselect, setOptionselect] = useState();
+
   // rest api datatype
 
   const [loading, setLoading] = useState(true);
@@ -36,15 +38,9 @@ const Question:React.FunctionComponent<anything> = ({setShowanswerflag}) => {
     fetchData();
   }, []);
 
-  const nextonclick = () => {
-    //check wether this question is viewed or not  if selected value have the same question that means
-    //the question is already viewed and now need to change the user selected option
-
-    setI(i + 1); //change to next question
-    console.log("i", i);
-  };
-  function setShowanswerflagButtonEvent(){
+  function setShowanswerflagButtonEvent() {
     setShowanswerflag(true);
+    setI(0)
   }
   const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     // check if exist
@@ -53,7 +49,6 @@ const Question:React.FunctionComponent<anything> = ({setShowanswerflag}) => {
       (existingElement) =>
         existingElement.questionId === questiondb[i].questionId
     );
-  
 
     if (index === -1) {
       console.log(index);
@@ -70,12 +65,9 @@ const Question:React.FunctionComponent<anything> = ({setShowanswerflag}) => {
     }
   };
   const submitEventHandle = () => {
-    console.log("option selected:", optionselect);
     console.log("ans array", questiondb);
   };
-  const prevonclick = () => {
-    setI(i - 1);
-  };
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -91,14 +83,7 @@ const Question:React.FunctionComponent<anything> = ({setShowanswerflag}) => {
     return (
       <>
         <div>
-          <div className="questionDiv">
-            <div className="countownandqno">
-              <h2>Question {i + 1}</h2>
-              <Countdown />
-            </div>
-
-            <p>{questiondb[i]?.question}</p>
-          </div>
+          <QuestionDIv/>  
           <div className="option">
             <label
               htmlFor="optionA"
@@ -162,12 +147,13 @@ const Question:React.FunctionComponent<anything> = ({setShowanswerflag}) => {
                 onChange={handleRadioChange}
                 checked={questiondb[i]?.userAnswer === "optionD"}
               ></input>
-              {questiondb[i]?.options?.optionD}
+               {questiondb[i]?.options?.optionD}
             </label>
           </div>
-          {i > 0 ? <button onClick={prevonclick}>Previous </button> : null}
+
+          {i > 0 ? <NextButton valueOfI={-1} /> : null}
           <button onClick={submitEventHandle}>submit </button>
-          <button onClick={nextonclick}>Next </button>
+          <NextButton valueOfI={1} />
         </div>
       </>
     );

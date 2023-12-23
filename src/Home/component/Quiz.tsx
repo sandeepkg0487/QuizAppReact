@@ -9,13 +9,18 @@ export default function Quiz() {
     const [quizdb , setQuizdb]=useState<quizdb[]>([])
     let random:Number;
     let check ;
+
+  const {setI} = useMyContext()
    
 /*next click function for change question using change value of i*/
 const [showanswerflag , setShowanswerflag] =useState<boolean>(false);
-const{setI} = useMyContext();
+
 const showAnswerbutton = () => {
-  setI(0);
-  setShowanswerflag(true);
+
+
+
+
+
  
 
 }

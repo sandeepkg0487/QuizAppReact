@@ -9,16 +9,16 @@ export interface button{
  export interface quizdbshape{
     questionId:number|string;
     question:string;
-    options?:options;
+    options?:string[];
     answer:string;
     userAnswer?:string;
  } 
- type options  ={
-   optionA:string;
-   optionB:string;
-   optionC:string;
-   optionD:string;
- }
+//  type options  ={
+//    optionA:string;
+//    optionB:string;
+//    optionC:string;
+//    optionD:string;
+//  }
 
  export interface userAnswers extends quizdbshape{userAnswer?:string};
 

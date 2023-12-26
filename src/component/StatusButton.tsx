@@ -1,4 +1,4 @@
-import "../home.css";
+
 import { useMyContext } from "./utils/Contextanswer";
 
 const StatusButton = () => {
@@ -7,17 +7,18 @@ const StatusButton = () => {
   const statusButtonClickEvent = (index: number) => {
     setI(index - 1);
   };
-  for (let index: number = 1; index <= 25; index++) {
+  for (let index of questiondb) {
+    
     buttonname.push(
       <button
-        key={index}
+        key={index.questionId}
         type="button"
         className={`${
-          questiondb[index - 1]?.userAnswer != null ? "active " : ""
+          questiondb[Number(index.questionId) - 1]?.userAnswer != null ? "active " : ""
         }statusButton`}
-        onClick={() => statusButtonClickEvent(index)}
+        onClick={() => statusButtonClickEvent(Number(index.questionId))}
       >
-        {index}
+        {index.questionId}
       </button>
     );
   }

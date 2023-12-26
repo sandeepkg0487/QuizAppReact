@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { quizdbshape, tabtrigerstatus, userAnswers } from './component/utils/shape'
-import StatusButton from './component/StatusButton';
-import Quiz from './component/Quiz';
+import { quizdbshape, tabtrigerstatus, userAnswers } from '../component/utils/shape'
+import StatusButton from '../component/StatusButton';
+import Quiz from '../component/Quiz';
 import './home.css';
-import { CustomProvider } from './component/utils/Contextanswer';
+
 
 
 export default function Home() {
@@ -17,7 +17,7 @@ export default function Home() {
   },[]
   )
   return (
-    <CustomProvider >
+   
 
    
     <div className="home">
@@ -31,6 +31,6 @@ export default function Home() {
      </div>
       </div>
     </div>
-    </CustomProvider>
+   
   )
 }

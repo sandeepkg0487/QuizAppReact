@@ -1,10 +1,12 @@
+body {
+  font-family: "Montserrat", sans-serif;
+}
 .home {
   width: 100%;
   height: 100vh;
-  background: linear-gradient(45deg, #36829e, #3f51b5);
+  background: linear-gradient(45deg, #101314, #12237c);
 }
-.questionAndindicationWrapper{
- 
+.questionAndindicationWrapper {
   width: 95%;
   display: flex;
   margin: auto;
@@ -12,66 +14,80 @@
   background: none;
   justify-content: center;
 }
+.flexbox {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+}
 .displayContent {
   background-color: rgb(255, 255, 255);
   width: 70%;
   height: 500px;
-  border-radius: 5px 0  0 5px ;
+  border-radius: 5px 0 0 5px;
   padding: 10px;
 }
-.indicator{
+.indicator {
   width: 30%;
+  max-width: 300px;
   background-color: #00000069;
-  min-width: 100px;
-  min-height: 100px;
-  max-width: 250px;
-  
-  
 }
 .active {
   color: rgb(255, 255, 255);
   background: linear-gradient(0deg, green, #3f51b5);
 }
-.userAnswer{
-color: #070809;
-background-color: #36829e;
-}
-.green{
+
+.green {
   color: rgb(255, 255, 255);
   background: green;
+}
+.yournaswerspan {
+  text-align: end;
 }
 
 /* Quiz.tsx */
 .questionDiv {
   margin: 5px;
-  border: 1px solid  #3f51b5;
+  border: 1px solid #3f51b5;
   border-radius: 2px;
   padding: 5px;
 }
-.countownandqno{
+.countownandqno {
   display: flex;
   justify-content: space-between;
 }
-.option label {
+.notselect {
   display: block;
   padding: 15px;
   margin: 5px;
   margin-top: 10px;
-  border-radius: 0 5px 5px  0;
+  border-radius: 0 5px 5px 0;
+  border: 3px solid white;
   box-shadow: 0 4px 10px 0 rgb(0 0 0 / 10%), 0 4px 20px 0 rgb(0 0 0 / 10%);
 }
-button{
+.userAnswer {
+  color: #070809;
+  border: 3px solid #36829e;
+}
+button {
   padding: 5px;
 }
-#optionA,#optionB,#optionC,#optionD{
+#input0,
+#input1,
+#input2,
+#input3 {
   display: none;
 }
+
+/* status button */
 .grid-container {
-  margin: 5px;
+  padding: 20px;
+  margin: auto;
+  max-width: 300px;
   display: grid;
   justify-items: center;
   grid-template-columns: repeat(5, 1fr); /* 5 columns */
-  grid-gap: 5px; /* Adjust the gap between buttons as needed */
+  grid-row-gap: 1%; /* Set the gap between rows */
+  grid-column-gap: 1%;
 }
 
 .statusButton {
@@ -81,4 +97,22 @@ button{
   overflow: hidden;
   border-radius: 100%;
   overflow: none; /* Adjust the height as needed */
+}
+
+@media screen and (max-width: 760px) {
+  .questionAndindicationWrapper {
+    flex-direction: column;
+  }
+  .displayContent {
+    width: 100%;
+    max-width: 850px;
+  }
+  .grid-container {
+    padding: 20px;
+    margin: auto;
+    max-width: 300px;
+  }
+  .indicator {
+    width: 100%;
+  }
 }

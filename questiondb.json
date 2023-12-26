@@ -1,0 +1,140 @@
+{
+  "mathsquiz1": [
+    {
+      "question": "In a certain code language COMPUTER is written as RFUVQNPC. How will MEDICINE be written in that code language?",
+      "options": ["MFEJDJOE", "EOJDJEFM", "EOJDEJFM", "MFEDJJOE"],
+      "questionId": 1,
+      "answer": "EOJDJEFM"
+    },
+    {
+      "question": "54-6/2+6?",
+      "options": ["6", "24", "30", "57"],
+      "questionId": 2,
+      "answer": "24"
+    },
+    {
+      "question": "What is the value of π (pi) to two decimal places?",
+      "options": ["3.14", "3.16", "3.18", "3.12"],
+      "questionId": 3,
+      "answer": "3.14"
+    },
+    {
+      "question": "Solve the equation 2x + 5 = 15.",
+      "options": ["x = 5", "x = 6", "x = 7", "x = 8"],
+      "questionId": 4,
+      "answer": "x = 7"
+    },
+    {
+      "question": "What is the square root of 144?",
+      "options": ["10", "12", "14", "16"],
+      "questionId": 5,
+      "answer": "12"
+    },
+    {
+      "question": "If a triangle has angles measuring 30°, 60°, and 90°, what type of triangle is it?",
+      "options": ["Equilateral", "Isosceles", "Scalene", "Right-angled"],
+      "questionId": 6,
+      "answer": "Right-angled"
+    },
+    {
+      "question": "Calculate the area of a rectangle with length 8 units and width 5 units.",
+      "options": ["13 sq units", "35 sq units", "40 sq units", "48 sq units"],
+      "questionId": 7,
+      "answer": "40 sq units"
+    },
+    {
+      "question": "What is the sum of the first 10 prime numbers?",
+      "options": ["129", "149", "159", "169"],
+      "questionId": 8,
+      "answer": "149"
+    },
+    {
+      "question": "If a = 4 and b = 7, what is the value of a² + b²?",
+      "options": ["41", "65", "65", "81"],
+      "questionId": 9,
+      "answer": "81"
+    },
+    {
+      "question": "Solve the expression: (3 × 5) - (8 ÷ 2).",
+      "options": ["7", "8", "9", "10"],
+      "questionId": 10,
+      "answer": "7"
+    },
+    {
+      "question": "What is the perimeter of a square with each side measuring 9 units?",
+      "options": ["27 units", "36 units", "45 units", "54 units"],
+      "questionId": 11,
+      "answer": "54 units"
+    },
+    {
+      "question": "If the angle between the hands of a clock is 120°, what is the time?",
+      "options": ["2:20", "3:00", "4:30", "5:40"],
+      "questionId": 12,
+      "answer": "4:30"
+    }
+  ],
+
+  "GK": [
+    {
+      "question": "What is the capital of France?",
+      "options": ["Berlin", "Paris", "Madrid", "Rome"],
+      "answer": "Paris",
+      "questionId": 1
+    },
+    {
+      "question": "Which planet is known as the Red Planet?",
+      "options": ["Earth", "Mars", "Venus", "Jupiter"],
+      "answer": "Mars",
+      "questionId": 2
+    },
+    {
+      "question": "Who wrote 'Romeo and Juliet'?",
+      "options": [
+        "Charles Dickens",
+        "William Shakespeare",
+        "Jane Austen",
+        "Mark Twain"
+      ],
+      "answer": "William Shakespeare",
+      "questionId": 3
+    },
+    {
+      "question": "What is the largest mammal on Earth?",
+      "options": ["Elephant", "Blue Whale", "Giraffe", "Hippopotamus"],
+      "answer": "Blue Whale",
+      "questionId": 4
+    },
+    {
+      "question": "In which year did the Titanic sink?",
+      "options": ["1912", "1920", "1935", "1905"],
+      "answer": "1912",
+      "questionId": 5
+    }
+  ],
+  "quiztab": [
+    {
+      "quizname": "Mathsquiz1",
+      "image": "path",
+      "duration": 300,
+      "noOfQuestions": 12
+    },
+    {
+      "quizname": "GK",
+      "image": "path",
+      "duration": 300,
+      "noOfQuestions": 121
+    },
+    {
+      "quizname": "Mathsquiz3",
+      "image": "path",
+      "duration": 300,
+      "noOfQuestions": 122
+    },
+    {
+      "quizname": "Mathsquiz4",
+      "image": "path",
+      "duration": 300,
+      "noOfQuestions": 123
+    }
+  ]
+}

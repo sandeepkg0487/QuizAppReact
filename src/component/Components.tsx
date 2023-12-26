@@ -7,9 +7,6 @@ type Props = {
 
 
 
-
-
-
 export function QuestionDIv(){
   const { questiondb,i } = useMyContext();
  

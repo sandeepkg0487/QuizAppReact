@@ -4,13 +4,13 @@ import { quizdbshape, userAnswers } from "./utils/shape";
 import FinishQuiz from "./FinishQuiz";
 import { NextButton, QuestionDIv } from "./Components";
 import { useMyContext } from "./utils/Contextanswer";
+import { Link, useParams } from "react-router-dom";
 
-type anything = {
-  setShowanswerflag: React.Dispatch<React.SetStateAction<boolean>>;
-};
-const Question: React.FunctionComponent<anything> = ({ setShowanswerflag }) => {
+
+const Question = () => {
   const { questiondb, setQuestiondb } = useMyContext();
   const { i, setI } = useMyContext();
+  const { id } = useParams();
 
   // rest api datatype
 
@@ -19,7 +19,7 @@ const Question: React.FunctionComponent<anything> = ({ setShowanswerflag }) => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch("http://localhost:8900/question"); // Replace with your API endpoint
+      const response = await fetch(`http://localhost:8900/${id}`); // Replace with your API endpoint
       if (!response.ok) {
         throw new Error("Failed to fetch data");
       }
@@ -38,10 +38,7 @@ const Question: React.FunctionComponent<anything> = ({ setShowanswerflag }) => {
     fetchData();
   }, []);
 
-  function setShowanswerflagButtonEvent() {
-    setShowanswerflag(true);
-    setI(0)
-  }
+
   const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     // check if exist
     console.log("from q db:", questiondb[i].questionId);
@@ -79,29 +76,37 @@ const Question: React.FunctionComponent<anything> = ({ setShowanswerflag }) => {
   if (!questiondb) {
     return <div>No data available</div>;
   }
-  if (i < 5) {
+  if (i < questiondb.length) {
     return (
       <>
         <div>
           <QuestionDIv/>  
           <div className="option">
-            <label
-              htmlFor="optionA"
+           {questiondb[i]?.options?.map((value,key)=>{
+            return (
+              <>
+              <label
+              key={i+""+key}
+              htmlFor={'input'.concat(key.toString())}
               className={
-                questiondb[i]?.userAnswer === "optionA" ? "userAnswer" : "none"
+                questiondb[i]?.userAnswer === value ? "userAnswer notselect" : "notselect"
               }
             >
               <input
+                key={i+""+key+key}
                 type="radio"
-                id="optionA"
+                id={'input'.concat(key.toString())}
                 name="userAnswer"
-                value="optionA"
+                value={value}
                 onChange={handleRadioChange}
-                checked={questiondb[i]?.userAnswer === "optionA"}
+                checked={questiondb[i]?.userAnswer === value}
               ></input>
-              {questiondb[i]?.options?.optionA}
+              {value}
             </label>
-            <label
+              </>
+            );
+           })} 
+            {/* <label
               htmlFor="optionB"
               className={
                 questiondb[i]?.userAnswer === "optionB" ? "userAnswer" : "none"
@@ -148,7 +153,7 @@ const Question: React.FunctionComponent<anything> = ({ setShowanswerflag }) => {
                 checked={questiondb[i]?.userAnswer === "optionD"}
               ></input>
                {questiondb[i]?.options?.optionD}
-            </label>
+            </label> */}
           </div>
 
           {i > 0 ? <NextButton valueOfI={-1} /> : null}
@@ -172,7 +177,8 @@ const Question: React.FunctionComponent<anything> = ({ setShowanswerflag }) => {
           show{" "}
         </button>
         <FinishQuiz />
-        <button onClick={setShowanswerflagButtonEvent}>Show Answers</button>
+        <Link to="/QuizAnswer"><button >Show Answers</button></Link>
+        
       </div>
     );
   }

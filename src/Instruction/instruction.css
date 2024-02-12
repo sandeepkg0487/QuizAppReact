@@ -1,0 +1,10 @@
+.instructioncontainer{
+    margin: 20px 50px;
+    min-height: 100vh;
+}
+ol {
+padding: 5px 20px ;
+}
+li{
+    padding: 5px;
+}

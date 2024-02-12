@@ -1,15 +1,22 @@
 import React, { useEffect, useState } from 'react'
+import { useMyModalContext } from './utils/Modalcontext';
+type props = {
+  timerinsec:number;
+}
 
-
-const Countdown = () => {
-    const [timer, setTimer] = useState<number>(5); 
+const Countdown :React.FC<props> = ({timerinsec}) => {
+    const [timer, setTimer] = useState<number>(timerinsec*10); 
+    const{setHidefinishquizQuestion,openModal}=useMyModalContext();
   
     useEffect(() => {
+  
         const countdown = setInterval(() => {
           setTimer((prevTimer:number):number|any => {
             if (prevTimer === 0) {
               clearInterval(countdown);
-             
+              setHidefinishquizQuestion(false);
+              openModal();
+              
               // Handle time's up logic here
             } else {
               return prevTimer - 1;
@@ -22,7 +29,8 @@ const Countdown = () => {
       }, []); 
   return (
     <div>
-      <h3>00:{timer}</h3>
+ 
+      <h3>00:{ ('0'+Math.floor(timer/60)).slice(-2)}:{('0'+Math.round(timer%60)).slice(-2)}</h3>
     </div>
   )
 }

@@ -9,6 +9,9 @@ interface MyContextType {
     setQuestiondb: React.Dispatch<React.SetStateAction<quizdbshape[]>>,
     setI:React.Dispatch<React.SetStateAction<number>>;
     i:number;
+    questiontriger:boolean;
+    setQuestiontriger :React.Dispatch<React.SetStateAction<boolean>>
+   
   }
   
 
@@ -18,8 +21,10 @@ interface MyContextType {
 export const CustomProvider: React.FC<MyContextProps> = ({ children }) => {
   
   const [questiondb, setQuestiondb] = useState<quizdbshape[]>([]);
-    const [i, setI] = useState(0);
-    return <CustomContext.Provider value={{ questiondb,setQuestiondb,i,setI}}>{children}</CustomContext.Provider>;
+  const [i, setI] = useState(0);
+  const [questiontriger ,setQuestiontriger]= useState<boolean>(false);
+ 
+    return <CustomContext.Provider value={{ questiondb,setQuestiondb,i,setI,questiontriger ,setQuestiontriger }}>{children}</CustomContext.Provider>;
 
   };
   export const useMyContext = (): MyContextType => {

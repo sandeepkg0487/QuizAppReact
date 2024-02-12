@@ -1,0 +1,93 @@
+.carousel {
+    width: 100%;
+    height: 100%;
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+.carousel:hover .controls {
+    opacity: 1;
+  }
+  .carousel .controls {
+    opacity: 0.5;
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    justify-content: space-between;
+    width: 100%;
+    z-index: 99999;
+    transition: all ease 0.5s;
+  }
+  .carousel .controls .control {
+    margin: 0 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    font-size: 32px;
+    width: 40px;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    opacity: 1;
+    transition: ease 0.3s;
+    cursor: pointer;
+  }
+  .controls img{
+    width: 100%;
+    border-radius: 100%;
+    object-fit: cover;
+    opacity: .5;
+  }
+  .carousel .slides {
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translateY(-50%);
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: 1s ease-in-out all;
+  }
+  .slide img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: .7;
+  }
+  .carousel .slides .slide {
+    min-width: 100%;
+    min-height: 250px;
+    height: auto;
+    position: relative;
+    background-color: black;
+  }
+  .next-slide img{
+    transform: rotate(-180deg);
+  }
+  .makeCenter{
+    color: #ffffff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    font-style: oblique;
+    font-family: auto;
+  }
+  .bgcolor{
+    background: linear-gradient(45deg, #062e26, #9f8a8ad6);
+}
+.fontfamily{
+  font-family: cursive;
+}
+@media screen and ( max-width:761px){
+  .makeCenter{
+    font-size: 32px;
+  }
+}
+
+
+
+   

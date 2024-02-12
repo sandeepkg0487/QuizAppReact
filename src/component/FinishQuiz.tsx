@@ -1,21 +1,38 @@
-import { useState } from 'react';
-import { useMyContext } from './utils/Contextanswer';
-
-
-const FinishQuiz = () => {
-const {questiondb}= useMyContext();
-const [result ,setResult]=useState<number|null>(null);
-    const finishButtonClick = () => {
-      setResult(questiondb.filter((prevdata)=>{return prevdata.userAnswer === prevdata.answer}).length);
-      console.log("result",result)
-     }
-    
+import { useEffect, useState } from "react";
+import { useMyContext } from "./utils/Contextanswer";
+import { Link } from "react-router-dom";
+type value = {
+  closeModal:() => void
+ 
+  
+}
+const FinishQuiz = ({closeModal,}:value) => {
+  const { questiondb ,setQuestiontriger} = useMyContext();
+  const [result, setResult] = useState<number | null>(null);
+  const resultcalculation = () => {
+    setResult(
+      questiondb.filter((prevdata) => {
+        return prevdata.userAnswer === prevdata.answer;
+      }).length
+    );
+ 
+  };
+useEffect(()=>{
+  resultcalculation()
+})
   return (
     <>
-       <button onClick={finishButtonClick}>Finish</button>
-       {result!==null ?<h1>You Scored {result} out of 5</h1>:null}
+      
+      {result !== null && (
+        <>
+          <h1>
+            You Scored {result} out of {questiondb.length}
+          </h1>
+          <button onClick={()=>{ closeModal();setQuestiontriger(true)}} >Show Answers</button>
+        </>
+      )}
     </>
-  )
-}
+  );
+};
 
-export default FinishQuiz
+export default FinishQuiz;

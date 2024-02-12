@@ -1,11 +1,5 @@
-import React, { useContext } from 'react'
+import Countdown from './Countdown';
 import { useMyContext } from './utils/Contextanswer'
-import { JsxElement } from 'typescript';
-type Props = {
-    index:number
-}
-
-
 
 export function QuestionDIv(){
   const { questiondb,i } = useMyContext();
@@ -13,8 +7,9 @@ export function QuestionDIv(){
   return(
     <div className="questionDiv">
             <div className="countownandqno">
-              <h2>Question {i + 1}</h2>
-              
+              <h2  >Question  {i + 1}</h2>
+              <Countdown timerinsec={questiondb.length}/>
+            
             </div>
     
             <p>{questiondb[i]?.question}</p>
@@ -22,22 +17,23 @@ export function QuestionDIv(){
           )
 }
 type avlue={
-  valueOfI:1|-1
+  valueOfI:number;
+  text:string;
 }
-export function NextButton (valueOfI:avlue){
-console.log("NextButton renderning....")
+export function NextButton ({valueOfI,text}:avlue  ){
+
   const {setI ,i} = useMyContext();
 
 
-  const nextonclick = (valueOfI:any) => {
+  const nextonclick = (valueOfI:number) => {
     setI(i + valueOfI); //change to next question
-    console.log("i", i);
-    console.log("NextButton renderning....")
+
+   
   };
 
 
 return(
-  <button onClick={()=>nextonclick(valueOfI.valueOfI)}>{Number(valueOfI.valueOfI)===-1?'previous':Number(valueOfI.valueOfI)===1?'Next':''} </button>
+  <button className='btnclasic' onClick={()=>nextonclick(valueOfI)}>{text} </button>
 )
 }
 

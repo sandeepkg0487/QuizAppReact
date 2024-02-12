@@ -33,9 +33,8 @@ body {
 }
 .active {
   color: rgb(255, 255, 255);
-  background: linear-gradient(0deg, green, #3f51b5);
+  background: #1686af;
 }
-
 .green {
   color: rgb(255, 255, 255);
   background: green;
@@ -94,6 +93,7 @@ button {
   /* Add any additional styling for your buttons */
   width: 30px; /* Make buttons take the full width of their container */
   height: 30px;
+  margin: 5px;
   overflow: hidden;
   border-radius: 100%;
   overflow: none; /* Adjust the height as needed */
@@ -110,9 +110,25 @@ button {
   .grid-container {
     padding: 20px;
     margin: auto;
-    max-width: 300px;
+   
   }
   .indicator {
     width: 100%;
+    margin: auto;
+    max-width: 100%;
   }
 }
+.flexboxforbutton{
+  display: flex;
+  justify-content: space-between;
+}
+.btnclasic{
+  background: rgb(136 176 219);
+  margin: 10px;
+  width: 96px;
+  border: none;
+  font-size: 1rem;
+  padding: 7px;
+  outline: none;
+}
+

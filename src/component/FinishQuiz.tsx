@@ -28,7 +28,7 @@ useEffect(()=>{
           <h1>
             You Scored {result} out of {questiondb.length}
           </h1>
-          <button onClick={()=>{ closeModal();setQuestiontriger(true)}} >Show Answers</button>
+          <button className="btnclasic" onClick={()=>{ closeModal();setQuestiontriger(true)}} >Show Answers</button>
         </>
       )}
     </>

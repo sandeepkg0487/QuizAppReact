@@ -8,6 +8,7 @@ import { Modalcontext } from './component/utils/Modalcontext';
 import Navbar from './Navbar/Navbar';
 import Footer from './Footer/Footer';
 import Instruction from './Instruction/Instruction';
+import About from './About/About';
 
 
 function App() {
@@ -15,9 +16,11 @@ function App() {
     <Modalcontext>
   
       <Router>
+      <Navbar />
         <Routes>
-         
-          <Route path='/' Component={QuizTab} />
+         {/* home page] */}
+          <Route path='/' Component={QuizTab} /> 
+          <Route path ='/about' Component={About}/>
           <Route path='/home/:id' Component={Home} />
           <Route path='/home/instruction/:id' Component={Instruction} />
 

@@ -1,0 +1,52 @@
+.displayflex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+}
+
+.aboutleft {
+    flex: 1;
+    overflow: hidden;
+    max-height: 100vh;
+}
+
+.aboutleft img {
+    margin: auto;
+    height: auto;
+    object-fit: cover;
+    max-width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.aboutright {
+    color: rgb(83, 80, 80);
+    padding: 50px;
+    flex: 1;
+    
+}
+
+.AboutHead {
+    position: absolute;
+    top: 0;
+    /* left: 0; */
+    transform: translate(50%, 50%);
+}
+@media screen and (max-width:576px) {
+
+    .displayflex {
+        flex-direction: column;
+
+    }
+    .aboutright {
+        
+        padding: 20px;
+       
+        
+    }
+    
+}

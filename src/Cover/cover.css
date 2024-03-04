@@ -1,0 +1,60 @@
+.contenthead {
+    height: inherit;
+}
+
+
+.covercontainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 230px;
+}
+
+.leftcover {
+
+    height: inherit;
+    flex: 1;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.leftcover img {
+    height: 100%;
+}
+
+.rightcover {
+    height: inherit;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rightcover img {
+    height: inherit;
+    width: auto;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+.yellow {
+    font-weight: bolder;
+    color: #e8aa3a;
+}
+
+.blue {
+    color: #1835d2;
+}
+
+.covermsg {
+    color: gray;
+}
+@media screen and (max-width:576px){
+    .rightcover {
+        display: none;
+    }
+}

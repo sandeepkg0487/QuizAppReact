@@ -1,35 +1,30 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './navbar.css';
-import { Link } from 'react-router-dom';
-import useEventData from '../QuizTab/Handlechangefilter';
+import { Link, useLocation, useParams } from 'react-router-dom';
+
 const Navbar = () => {
-    let [changestate, setChangestate] = useState(false)
-    function myFunction() {
 
-        setChangestate(!changestate);
-
-    }
-
-
+ const location =useLocation();
 
     return (
         <>
             <nav>
-                <div className="container">
+                <div className="contenthead">
                     <div className="navflexbox">
                         <Link to={'/'}>
                             <div className="iconbox">
-                                <img src="/Images/logo.png" alt="" />
-                                <h1 className='inlineblcok'>Quick Brain</h1>
+                                <img src="/logoQuiz.png" alt="logo" />
                             </div>
                         </Link>
-                        {/* <div className="hamberger">
-                            <div className={changestate ? 'change' : 'hamburgercontainer'} onClick={myFunction}>
-                                <div className="bar1"></div>
-                                <div className="bar2"></div>
-                                <div className="bar3"></div>
-                            </div>
-                        </div> */}
+
+                        <div className="navright">
+                            <Link to={'/'}>
+                                <p className={`navhome nav-item ${location.pathname === '/' && 'active'} `}>home</p>
+                            </Link>
+                            <Link to={'/about'}>
+                                <p className={`navhome ${location.pathname === '/about' && 'active'} `}>about</p>
+                            </Link>
+                        </div>
 
                     </div>
                 </div>

@@ -94,6 +94,7 @@ button {
   width: 30px; /* Make buttons take the full width of their container */
   height: 30px;
   margin: 5px;
+  border: 0;
   overflow: hidden;
   border-radius: 100%;
   overflow: none; /* Adjust the height as needed */
@@ -123,12 +124,15 @@ button {
   justify-content: space-between;
 }
 .btnclasic{
-  background: rgb(136 176 219);
+  background: #1936d2;
   margin: 10px;
   width: 96px;
   border: none;
   font-size: 1rem;
   padding: 7px;
+  color: white;
   outline: none;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
